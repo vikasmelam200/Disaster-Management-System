@@ -1,6 +1,7 @@
 package database
 
 import (
+	"DisasterManagement/models"
 	"log"
 
 	"gorm.io/driver/postgres"
@@ -16,4 +17,5 @@ func InitDB() {
 	if err != nil {
 		log.Fatalf("Failed to connect to the database: %v", err)
 	}
+	DB.AutoMigrate(&models.DisasterInfo{}, &models.AtmsService{})
 }
